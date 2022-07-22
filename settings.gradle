@@ -1,0 +1,12 @@
+include ':app'
+include ':my_flutter_plugin'
+//include ':custom_plugin'
+
+// assumed existing content
+setBinding(new Binding([gradle: this]))                                // new
+evaluate(new File(                                                     // new
+        settingsDir.parentFile,                                              // new
+        '/my_test/.android/include_flutter.groovy'                         // new
+))
+include ':my_test'
+project(':my_test').projectDir = new File('../my_test')
